@@ -3,8 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 	<?php include VIEWPATH.'partials/header.php'; ?>
 
-		<div id="container">
-			<h1>Welcome to CodeIgniter!</h1>
+		<main id="content" class='container-fluid'>
+			<header class="row py-5">
+				<h1>Welcome to CodeIgniter!</h1>
+			</header>
 
 			<div id="body">
 				<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
@@ -19,8 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<p> <?php echo $content; ?></p>
 			</div>
 
-			<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
-			</p>
-		</div>
+			
+		</main>
+
+		<?php include VIEWPATH.'partials/footer.php'; ?>
 
 		
