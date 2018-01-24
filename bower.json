@@ -13,5 +13,9 @@
     "assets",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "https://github.com/twbs/bootstrap.git#4.0.0",
+    "jquery": "git://github.com/jquery/jquery.git#3.3.1"
+  }
 }
