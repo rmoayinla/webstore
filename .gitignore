@@ -41,3 +41,5 @@ system/language/
 system/helpers/language_helper.php
 system/helpers/inflector_helper.php
 system/helpers/
+public/assets/
+public/css/style.css.map
