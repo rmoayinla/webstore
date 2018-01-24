@@ -22,4 +22,14 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function view($page)
+	{
+		if( !file_exists(VIEWPATH.$page.'.php')){
+			show_404();
+		}
+
+		$this->load->view($page);
+
+	}
 }
