@@ -1,14 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+	<!--include and import header partial -->
 	<?php include VIEWPATH.'partials/header.php'; ?>
 
-		<main id="content" class='container-fluid'>
-			<header class="row py-5">
+		<header class="jumbotron jumbotron-fluid">
+			<div class="container-fluid">
 				<h1>Welcome to CodeIgniter!</h1>
-			</header>
-
-			<div id="body">
+			</div>
+		</header>
+		<main id="content" class='row'>
+			
+			<div id="body" class="p-5">
 				<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 				<p>If you would like to edit this page you'll find it located at:</p>
@@ -24,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 		</main>
 
-		<?php include VIEWPATH.'partials/footer.php'; ?>
+	<!-- include and import the site footer partial -->
+	<?php include VIEWPATH.'partials/footer.php'; ?>
 
 		
