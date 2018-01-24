@@ -43,3 +43,4 @@ system/helpers/inflector_helper.php
 system/helpers/
 public/assets/
 public/css/style.css.map
+node_modules/
