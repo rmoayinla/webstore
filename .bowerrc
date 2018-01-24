@@ -1,0 +1,17 @@
+{
+  "directory": "public/assets",
+  "timeout": 120000,
+  "save": true,
+  "save-exact": true,
+  "interactive": true,
+  "scripts": {
+  	"preinstall": "",
+  	"postinstall": "", 
+  	"preuninstall": ""
+  },
+  "registry": {
+    "search": [
+      
+    ]
+  }
+}
