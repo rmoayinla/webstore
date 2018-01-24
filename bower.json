@@ -1,0 +1,17 @@
+{
+  "name": "Webstore",
+  "homepage": "https://github.com/rmoayinla/webstore",
+  "authors": [
+    "AUGUSTINE-PC\\AUGUSTINE <rmoayinla@yahoo.com>"
+  ],
+  "description": "A simple app built with code igniter",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets",
+    "test",
+    "tests"
+  ]
+}
