@@ -50,6 +50,7 @@ class Welcome extends CI_Controller {
 		}
 		
 		$data['title'] = ucwords($page); 
+		$data['session'] = $this->session->userdata();
 		$this->load->view($page, $data);
 		
 
