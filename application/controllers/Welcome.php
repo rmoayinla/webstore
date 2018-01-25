@@ -1,16 +1,24 @@
 <?php
+//disable direct access to the file via the browser //
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ *
+ * Controller class that handles the default route 
+ *
+ * this welcome controller is shipped with CI
+ *
+ */
 class Welcome extends CI_Controller {
 
 	/**
 	 * Constructor for this controller
 	 *
 	 * called when this controller is instantiated 
+	 * calls the base controller constructor and load helpers
 	 */
 	public function __construct(){
 		parent::__construct();
-		$this->load->helper('url');
 	}
 
 	/**
@@ -30,7 +38,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['content'] = 'Lets test if this will work'; 
+		$data['title'] = 'home';
+		$this->load->view('home', $data);
 	}
 
 	public function view($page)
@@ -38,8 +48,10 @@ class Welcome extends CI_Controller {
 		if( !file_exists(VIEWPATH.$page.'.php')){
 			show_404();
 		}
-
-		$this->load->view($page);
+		
+		$data['title'] = ucwords($page); 
+		$this->load->view($page, $data);
+		
 
 	}
 }
