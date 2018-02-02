@@ -5,6 +5,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<?php echo link_tag("public/css/style.css"); ?>
+
+		<!-- Generated from https://realfavicongenerator.net/favicon_result?file_id=p1c5caq1qtg9jir1og164olid6#.WnTpDLynHIU -->
+
+		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url();?>apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url();?>favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>favicon-16x16.png">
+		<?php echo link_tag("site.webmanifest", "manifest");?><link rel="" href="<?php echo base_url();?>">
+		<link rel="mask-icon" href="<?php echo base_url();?>safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#f1f7f7">
+		<meta name="msapplication-TileImage" content="<?php echo base_url();?>mstile-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+
+
+		<?php echo link_tag('feed', 'alternate', 'application/rss+xml', 'My RSS Feed'); ?>
+
 		<title><?php echo (!empty($title)) ? $title : 'Welcome to CodeIgniter' ?></title>
 	</head>
 
