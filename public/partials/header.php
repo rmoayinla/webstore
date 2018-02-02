@@ -4,8 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
-		<link rel="stylesheet" href='<?php echo base_url(); ?>public/css/style.css' />
-		
+		<?php echo link_tag("public/css/style.css"); ?>
 		<title><?php echo (!empty($title)) ? $title : 'Welcome to CodeIgniter' ?></title>
 	</head>
 
@@ -18,10 +17,10 @@
 	    				<span class="navbar-toggler-icon"></span>
 	  				</button>
 
-					<a class="navbar-brand" href="#">Webstore </a>
+					<?php echo anchor('', 'Webstore', array('class'=>'navbar-brand') );?>
 					<div class="collapse navbar-collapse" id="">
 						<ul class="navbar-nav mx-lg-auto mx-sm-0">
-							<li class="nav-item"><a href="#" class="nav-link">Customers </a></li>
+							<li class="nav-item"><?php echo anchor('customers', 'Customers', array('class'=>'nav-link') );?></li>
 							<li class="nav-item"><a href="#" class="nav-link">Suppliers </a></li>
 							<li class="nav-item"><a href="#" class="nav-link">Orders </a></li>
 
