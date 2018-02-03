@@ -15,9 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<main id="content" class='row'>
 			
 			<div id="body" class="p-5">
-				<p> The page you are trying to load does not exist </p>
-				<p> <?php if(!empty($message)) echo $message;?></p>
-				
+				<p> The page at <?php echo current_url(); ?> you are trying to load does not exist </p>
+				<p> <?php if(!empty($message)) echo html_escape($message);?></p>
+				<p> <?php if(isset($session)) print_r($session);?></p>
 			</div>
 
 			

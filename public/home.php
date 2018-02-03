@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 				<p> <?php if(!empty($content)) echo html_escape($content);?></p>
-				<pre> <?php print_r($config); ?> </pre>
+				<pre> <?php print_r($users); ?> </pre>
 			</div>
 
 			
