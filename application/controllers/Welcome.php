@@ -19,6 +19,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function __construct(){
 		parent::__construct();
+		$data['config'] = !empty($this->config) ? $this->config : [];
+		$data['session'] = $this->session->userdata();
+		$this->load->vars($data);
+		$this->load->model('user_model');
 	}
 
 	/**
@@ -38,21 +42,33 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		
+		
 		$data['content'] = 'Lets test if this will work'; 
 		$data['title'] = 'home';
+		$data['users'] = $this->user_model->get_users();
+		
 		$this->load->view('home', $data);
 	}
 
 	public function view($page)
 	{
+		
+		
+
 		if( !file_exists(VIEWPATH.$page.'.php')){
 			show_404();
 		}
 		
 		$data['title'] = ucwords($page); 
-		$data['session'] = $this->session->userdata();
+		
+		
 		$this->load->view($page, $data);
 		
 
 	}
+
+	/*public function _remap($url){
+
+	}*/
 }
