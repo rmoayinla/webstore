@@ -21,7 +21,11 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$data['config'] = !empty($this->config) ? $this->config : [];
 		$data['session'] = $this->session->userdata();
+		
+		//the $data will be available in all view templates //
 		$this->load->vars($data);
+
+		//load the user model //
 		$this->load->model('user_model');
 	}
 
