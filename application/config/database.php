@@ -80,7 +80,7 @@ $db['default'] = array(
 	'password' => 'ayinlaomowura',
 	'database' => '',
 	'dbdriver' => 'pdo',
-	'dbprefix' => '',
+	'dbprefix' => 'ws_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
