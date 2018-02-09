@@ -1,5 +1,6 @@
 <?php
-class Welcome extends CI_Controller {
+
+class Product extends CI_Controller {
 
 	/**
 	 * Constructor for this controller
@@ -16,11 +17,14 @@ class Welcome extends CI_Controller {
 		$this->load->vars($data);
 
 		//load the user model //
-		$this->load->model('user_model');
-		$this->load->helpers(array('url', 'html'));
+		$this->load->model('store_model');
+
 	}
 
 	public function index(){
+		$data['tables'] =  $this->store_model->get_tables();
+		$this->store_model->set_table('customers');
+		$data['table'] = $this->store_model->get_table();
 		$this->load->view('products/home', $data);
 	}
 
