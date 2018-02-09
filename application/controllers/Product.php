@@ -17,14 +17,13 @@ class Product extends CI_Controller {
 		$this->load->vars($data);
 
 		//load the user model //
-		$this->load->model('store_model');
+		$this->load->model('product_model');
 
 	}
 
 	public function index(){
-		$data['tables'] =  $this->store_model->get_tables();
-		$this->store_model->set_table('customers');
-		$data['table'] = $this->store_model->get_table();
+		$data = array();
+		$data['products'] = $this->product_model->getAll();
 		$this->load->view('products/home', $data);
 	}
 
