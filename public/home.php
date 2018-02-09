@@ -9,21 +9,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h1>Welcome to CodeIgniter!</h1>
 			</div>
 		</header>
-		<main id="content" class='row'>
+		<main id="content" class='container-fluid'>
 			
-			<div id="body" class="p-5">
-				<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+			<section id="" class="row p-5">
+				<div class="heading mx-auto w-md-50 text-center">
+					<h3> Customers  </h3>
+					<p> Learn about our active customers, view their profiles, contacts and know about their orders  </p>
+				</div>
 
-				<p>If you would like to edit this page you'll find it located at:</p>
-				<code>application/views/welcome_message.php</code>
+				<div class="p-5"><p></p></div>
+			</section>
+			<section id="" class="row p-5">
+				<div class="heading mx-auto w-md-50 text-center">
+					<h3> Products </h3>
+					<p> View our product types and view our most recent and most ordered products  </p>
+				</div>
 
-				<p>The corresponding controller for this page is found at:</p>
-				<code>application/controllers/Welcome.php</code>
+				<div class="p-5"><p></p></div>
+			</section>
 
-				<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-				<p> <?php if(!empty($content)) echo html_escape($content);?></p>
-				<pre> <?php print_r($users); ?> </pre>
-			</div>
+			<pre> <?php print_r($users); ?> </pre>
+			
 
 			
 		</main>
