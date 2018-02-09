@@ -73,4 +73,8 @@ class Store_model extends CI_Model{
 		
 		return $tables;
 	}
+
+	public function get(){
+		
+	}
 }
