@@ -12,21 +12,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<main id="content" class='container-fluid'>
 			
 			<section id="" class="row p-5">
-				<div class="heading mx-auto w-md-50 text-center">
-					<h3> Customers  </h3>
-					<p> Learn about our active customers, view their profiles, contacts and know about their orders  </p>
+				<div class="heading mx-auto w-50 text-center">
+					<h3> Easy steps to using Webstore </h3>
+					<div class="">
+						<p> Easily make view our different varieties of products, make your orders online and follow
+						these easy steps to make payment and get your item shipped to you.  </p>
+					</div>
 				</div>
 
-				<div class="p-5"><p></p></div>
 			</section>
-			<section id="" class="row p-5">
-				<div class="heading mx-auto w-md-50 text-center">
-					<h3> Products </h3>
-					<p> View our product types and view our most recent and most ordered products  </p>
-				</div>
-
-				<div class="p-5"><p></p></div>
-			</section>
+			
 
 			<pre> <?php print_r($users); ?> </pre>
 			
