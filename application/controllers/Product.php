@@ -19,12 +19,19 @@ class Product extends CI_Controller {
 		//load the user model //
 		$this->load->model('product_model');
 
+ 		$this->load->helper('date');
+
 	}
 
 	public function index(){
 		$data = array();
 		$data['products'] = $this->product_model->getAll();
 		$this->load->view('products/home', $data);
+	}
+
+	public function create($product){
+		$data['product_type'] = preg_replace('/s$/i', '', $product);
+		$this->load->view('products/create', $data);
 	}
 
 }
