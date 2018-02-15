@@ -16,16 +16,20 @@ class Product extends CI_Controller {
 		//the $data will be available in all view templates //
 		$this->load->vars($data);
 
-		//load the user model //
-		$this->load->model('product_model');
+		//load models //
+		$this->load->model(['product_model', 'store_model']);
 
- 		$this->load->helper('date');
+ 		//load helpers //
+ 		$this->load->helper(['date', 'htmlpurifier']);
 
 	}
 
 	public function index(){
 		$data = array();
-		$data['products'] = $this->product_model->getAll();
+		$this->store_model->set_table('products');
+		$data['store'] = $this->store_model->get_table();
+		$data['products'] = $this->store_model->getAllFromTable('', 
+			['ID', 'product_type', 'title', 'slug', 'created_date', 'description', 'product_type_id'], 'obj');
 		$this->load->view('products/home', $data);
 	}
 
@@ -33,5 +37,12 @@ class Product extends CI_Controller {
 		$data['product_type'] = preg_replace('/s$/i', '', $product);
 		$this->load->view('products/create', $data);
 	}
+
+	public function getAllFromProductType($type){
+		$data = array();
+		$data['products'] = $this->product_model->getAll();
+		$this->load->view('products/home', $data);
+	}
+	
 
 }
