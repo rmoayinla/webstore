@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 ?>
 	<!--include and import header partial -->
 	<?php include VIEWPATH.'partials/header.php'; ?>
@@ -20,7 +21,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<p> <?php if(isset($session)) print_r($session);?></p>
 			</div>
 
-			
+			<?php //print_r($DB_Routes); ?>
+
 		</main>
 
 	<!-- include and import the site footer partial -->
