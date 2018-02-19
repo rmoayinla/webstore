@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+$ci =& get_instance();
+$ci->load->database();
+$error = $ci->db->error();
 ?>
 	<!--include and import header partial -->
 	<?php include VIEWPATH.'partials/header.php'; ?>
@@ -13,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			<div id="body" class="p-5">
 				<p> There are errors with your database connection settings</p>
-				<p> <?php if(!empty($content)) echo $content;?></p>
+				<p> <?php if(!empty($error)) print_r($error);?></p>
 			</div>
 
 			
