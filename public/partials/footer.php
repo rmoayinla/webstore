@@ -4,6 +4,9 @@
 		</footer>
 	<!-- #wrapper div opened in partials/header.php -->
 	</div>
+		<!-- Moment js for date manipulation-->
+		<script src="<?php echo base_url();?>node_modules/moment/moment.js"></script>
+
 		<!-- jQuery library -->
 		<script src="<?php echo base_url()?>public/assets/jquery/dist/jquery.min.js"></script>
 
