@@ -1,11 +1,15 @@
  //moment.js for date manipulation and settings //
- var moment = moment(); 
+ 	var moment = moment(); 
  (function($){
  	
- 	if(typeof moment !== "undefined"){
+ 	if(typeof moment !== "undefined")
+ 	{
  		console.log(moment.format());
-
  	}
+ 	
+ 	
+ 	
+
 
  })(jQuery);
 
@@ -18,3 +22,4 @@
     	theme: 'mobile',
     },
  });
+
