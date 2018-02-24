@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+global $DB_Routes;
 ?>
 	<!--include and import header partial -->
 	<?php include VIEWPATH.'partials/header.php'; ?>
@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<p> <?php if(isset($session)) print_r($session);?></p>
 			</div>
 
-			<?php //print_r($DB_Routes); ?>
+			<?php krsort($DB_Routes); print_r($DB_Routes); ?>
 
 		</main>
 
