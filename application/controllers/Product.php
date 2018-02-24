@@ -17,7 +17,7 @@ class Product extends CI_Controller {
 		$this->load->vars($data);
 
 		//load models //
-		$this->load->model(['product_model', 'store_model']);
+		$this->load->model(['product_model', 'store_model', 'product_type_model']);
 
  		//load helpers //
  		$this->load->helper(['date', 'htmlpurifier']);
@@ -26,22 +26,50 @@ class Product extends CI_Controller {
 
 	public function index(){
 		$data = array();
-		$this->store_model->set_table('products');
-		$data['store'] = $this->store_model->get_table();
-		$data['products'] = $this->store_model->getAllFromTable('', 
-			['ID', 'product_type', 'title', 'slug', 'created_date', 'description', 'product_type_id'], 'obj');
+		
+		$data['store'] = $this->product_model->get_table();
+		$data['products'] = $this
+							->product_model
+							->getAllFromTable(['ID', 'product_type', 'title', 'slug', 'created_date', 'description', 'product_type_id'])
+							->populate('product_type_id')
+							->get_results();
+
 		$this->load->view('products/home', $data);
 	}
 
 	public function create($product){
-		$data['product_type'] = preg_replace('/s$/i', '', $product);
+		if(!empty($_POST)){
+			$data['message'] = $this->upload();			
+		}
+		$product_type_slug = $this->product_type_model->getSlug();
+		$data['product_type'] = $this->product_type_model->get(array('slug' => $product_type_slug));
+
 		$this->load->view('products/create', $data);
 	}
 
+	private function upload(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+		
+		if(!$this->form_validation->run()){
+			return validation_errors();
+		} else{
+			
+			$data = $this->input->post(array('title', 'description', 'product_type_id', 'product_type_name'), true);
+			$data['slug'] = url_title($data['title']);
+			
+
+			if($this->product_model->get_db()->insert('products', $data))
+				return "inserted!!!";
+
+			return "insert faled";
+
+		}
+	}
+
 	public function getAllFromProductType($type){
-		$data = array();
-		$data['products'] = $this->product_model->getAll();
-		$this->load->view('products/home', $data);
+		
 	}
 	
 
