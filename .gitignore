@@ -1,2 +1,8 @@
 user_guide/
 system/
+application/third_party/gas/
+application/language/danish/gas_lang.php
+application/language/dutch/gas_lang.php
+application/language/indonesia/gas_lang.php
+application/language/italian/gas_lang.php
+application/language/portuguese/gas_lang.php
