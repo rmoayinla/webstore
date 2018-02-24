@@ -53,8 +53,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 global $DB_Routes;
 
 
-
-if(!empty($DB_Routes)) $route = $DB_Routes;
+if(!empty($DB_Routes)){
+	krsort($DB_Routes);
+	$route = $DB_Routes;
+}
 
 
 $route['default_controller'] = 'welcome';
