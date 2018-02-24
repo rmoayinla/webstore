@@ -27,7 +27,7 @@ class Router_Hook{
 
 		try{
 			$db = new PDO($params['dsn'], $params['username'], $params['password'], array(PDO::ATTR_PERSISTENT => true));
-			$sql = "SELECT ID, name, value, category FROM {$params['dbprefix']}settings WHERE category = ?";
+			$sql = "SELECT name, value, category FROM {$params['dbprefix']}settings WHERE category = ?";
 			$query = $db->prepare($sql);
 			$query->bindValue(1, "routes");
 			$query->execute();
