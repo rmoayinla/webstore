@@ -17,8 +17,7 @@
   "dependencies": {
     "bootstrap": "https://github.com/twbs/bootstrap.git#4.0.0",
     "jquery": "git://github.com/jquery/jquery.git#3.3.1",
-    "bootstrap-datepicker": "https://github.com/uxsolutions/bootstrap-datepicker.git",
-    "bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker.git"
+    "bootstrap-datepicker": "https://github.com/uxsolutions/bootstrap-datepicker.git"
     
   }
 }
