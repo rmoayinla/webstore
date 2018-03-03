@@ -20,17 +20,15 @@ trait Db_Table{
 			$this->tables = $this->get_tables();
 		}
 		
-		$table = strtolower($table);
+		try{
+			$this->validate_table($table);
+			$this->table = str_replace(' ', '_', $table);
+			return $this;
 
-		//throw exception if the table does not exist in the database
-		if(!in_array($table, $this->tables)){
-			throw new Exception('table does not exist in database'); 
+		} catch(Exception $e){
+			throw new Exception ($e->getMessage());
 		}
-
-		$this->table = str_replace(' ', '_', $table);
-
-		return $this;
-
+		
 	}
 
 	/**
@@ -67,5 +65,14 @@ trait Db_Table{
 		$this->tables = $tables;
 		
 		return $this->tables;
+	}
+
+	private function validate_table($table){
+		$table = strtolower($table);
+
+		//throw exception if the table does not exist in the database
+		if(!in_array($table, $this->tables)){
+			throw new Exception('table does not exist in database'); 
+		}
 	}
 }
