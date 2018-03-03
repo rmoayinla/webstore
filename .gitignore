@@ -44,3 +44,4 @@ system/helpers/
 public/assets/
 public/css/style.css.map
 node_modules/
+public/uploads/
