@@ -12,10 +12,11 @@
 
 require_once APPPATH."third_party/traits/Db_table.php";
 require_once APPPATH."third_party/traits/Db_query.php";
+require_once APPPATH."third_party/traits/Db_meta.php";
 
 class Store_model extends CI_Model{
 
-	use Db_Table, Db_query;
+	use Db_Table, Db_query, Db_meta;
 	
 	private $table = "";
 
@@ -29,6 +30,8 @@ class Store_model extends CI_Model{
 
 	private $validation = array();
 
+	private $meta = array();
+
 	/**
 	 * stores results of queries run on the db
 	 *
@@ -37,6 +40,7 @@ class Store_model extends CI_Model{
 	private $results = null;
 
 	public function __construct(){
+		$this->load->helper('array');
 		$this->set_defaults();
 	}
 
