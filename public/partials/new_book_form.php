@@ -1,5 +1,5 @@
-<?php if(!empty(validation_errors())): ?>
-	<div class="alert alert-warning"><?php echo validation_errors(); ?></div>
+<?php if(!empty($message)): ?>
+	<div class="alert alert-warning"><?php echo $message; ?></div>
 <?php endif; ?>
 
 <?php echo form_open_multipart(current_url(), array("id" => "create-book", "class" => "form")); ?>
@@ -35,15 +35,18 @@
 	 		echo form_upload(
 	 			array(
 	 				"name" => "thumbnail",
-	 				"class" => "form-control-file d-none",
-	 				"id" => "featured-image"
+	 				"class" => "form-control-file d-none with-preview",
+	 				"id" => "featured-image",
+	 				"accept" => "image/*"
 	 			)
 	 		);
 		 ?>
+		 <div class="preview"></div>
 	 </div>
 	 
 	 <input type="hidden" name="product_type_id" value="<?php echo html_escape($product_type["ID"]); ?>" />
 	 <input type="hidden" name="product_type_name" value="<?php echo html_escape($product_type["name"]); ?>" />
+	 <input type="hidden" name="product_type_slug" value="<?php echo html_escape($product_type["slug"]); ?>" />
 	 <div class="form-group">
 	 	<input type="submit" name="submit" value="Create book" class="btn btn-submit"/>
 	 </div>
