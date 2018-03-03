@@ -7,6 +7,9 @@
  		console.log(moment.format());
  	}
  	
+ 	$(".with-preview").on("change", function(ev){
+ 		
+ 	});
  	
  	
 
