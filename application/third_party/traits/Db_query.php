@@ -103,7 +103,7 @@ trait DB_query{
 	 *@return: 	$this 			object 				instance of this class
 	 *
 	 */
-	public function populate($column){
+	public function populate($columns){
 		//check if the stored result is an instance of CI_DB result, if so convert to array //
 		if(method_exists($this->results, 'result') || method_exists($this->results, 'result_array'))
 			$this->results = $this->get_results();
@@ -111,26 +111,53 @@ trait DB_query{
 		//copy or clone our results here, since it will be overriden in our next query //
 		$clone_results  = $this->results;
 
+		if(is_string($columns)) $columns = (array) $columns;
+
 		/**
 		 * Loop through our current results and check each result if the column is a foreign key
 		 * checks the foreign key column in our relationships, this will tell us which table to map to 
 		 * query the table and get the populated data, add the populated data to our cloned result 
 		 */
 		foreach($this->results as $index => $result){
-			
-			if(!empty($column)){
-				if(!array_key_exists($column, $result)) return $this;
-				if(!array_key_exists($column, $this->relationships)) return $this;
+
+			if(empty($result['meta'])) $result['meta'] = array();
+			//if passed column is a boolean, then we are searching the key of results //
+			if(is_bool($columns)) $columns = array_keys($result);
+
+			foreach($columns as $column){
+				
+				if(!array_key_exists($column, $result)) continue;
+				if(!array_key_exists($column, $this->relationships)) continue;
+				
+				$key = $this->relationships[$column];
+				
+				if($column === "meta"){
+					$result[$column] = $this->get_meta($result["ID"]);
+					$clone_results[$index] = $result;
+					continue;
+				}
 				
 				try{
-					$table = str_replace('_', ' ', $this->relationships[$column]);
+					$table = is_array($key) ? $key['table'] : $key;
+					$table = str_replace('_', ' ', $table);
 					$sub_table = $this->set_table($table);
-					$result[$column] = $this->getAllFromTable()->get_results();
+					
+					//if a column is specified for this relationship, run a where clouse query//
+					if(!empty($key['column'])) $this->db->where(array($key['column'] => $result[$column]));
+					
+					if(!empty($key['find']) && $key['find'] === 'one'){
+						$result[$column] = $this->getOneFromTable()->get_results();
+						$result[$column] = $result[$column][0];
+					}else{
+						$result[$column] = $this->getAllFromTable()->get_results();
+					}
+
 					$clone_results[$index] = $result;
 				} catch(Exception $e){
 					throw new Exception($e->getMessage());
 				}
-			}
+				
+			} //end foreach $columns //
 		}
 		//copy our result back to the stored results //
 		$this->results =  $clone_results;
